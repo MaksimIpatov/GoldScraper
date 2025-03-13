@@ -140,3 +140,13 @@ python main.py --scraper standard --pages 1 --limit 5 --verbose
 ---
 
 > [Техническое задание](./TASKS.md)
+
+## Тесты
+
+### Запуск тестов с измерением покрытия:
+
+```bash
+pytest --cov=scraper --cov-report=term-missing tests/
+```
+
+![5.png](demo/screens/5.png)
