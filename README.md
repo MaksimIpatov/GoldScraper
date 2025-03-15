@@ -61,7 +61,7 @@ python -m venv .venv
 
 ```bash
 # Linux/Mac
-pip install -r requirements.txt
+pip3 install -r requirements.txt
 
 # Windows
 pip install -r requirements.txt
