@@ -1,0 +1,88 @@
+[project]
+name = "goldscraper"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Maksim Ipatov",email = "ipatovmaksim78@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "requests (>=2.32.3,<3.0.0)",
+    "beautifulsoup4 (>=4.13.3,<5.0.0)",
+    "selenium (>=4.29.0,<5.0.0)",
+    "fake-useragent (>=2.0.3,<3.0.0)",
+    "python-decouple (>=3.8,<4.0)",
+    "playwright (>=1.50.0,<2.0.0)",
+    "tqdm (>=4.67.1,<5.0.0)",
+    "pytest (>=8.3.5,<9.0.0)",
+    "pytest-mock (>=3.14.0,<4.0.0)",
+    "pytest-cov (>=6.0.0,<7.0.0)",
+]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.5"
+isort = "^6.0.1"
+black = "^25.1.0"
+flake8 = "^7.1.2"
+flake8-pyproject = "^1.2.3"
+webdriver-manager = "^4.0.2"
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.flake8]
+max-line-length = 79
+max-complexity = 10
+count = true
+per-file-ignores = [
+    '__init__.py:F403,F401'
+]
+extend-ignore = [
+    "E203",
+    "E231",
+    "E241",
+    "W503",
+    "F811",
+    "R503",
+    "R504",
+    "R505"
+]
+exclude = [
+    ".git/",
+    "__pycache__/",
+    "env/",
+    "venv/",
+    ".env/",
+    ".venv/",
+    "tests/",
+    ".pytest_cache",
+    ".vscode/",
+    ".idea/"
+]
+
+[tool.black]
+line-length = 79
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+    migrations
+  | __pycache__
+  | .pytest_cache
+  | .vscode
+  | .idea
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 79
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+known_local_folder = [
+    "scraper",
+]
