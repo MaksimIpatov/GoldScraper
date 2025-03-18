@@ -1,7 +1,13 @@
 import logging
 from typing import Optional
 
-from playwright.sync_api import Browser, BrowserContext, Page, sync_playwright
+from playwright.sync_api import (
+    Browser,
+    BrowserContext,
+    Page,
+    Playwright,
+    sync_playwright,
+)
 
 from .config import PERFUME_PAGE_URL
 
@@ -9,9 +15,9 @@ from .config import PERFUME_PAGE_URL
 class BrowserManager:
     def __init__(self, headless: bool = True) -> None:
         self.headless: bool = headless
-        self.playwright = None
+        self.playwright: Optional[Playwright] = None
         self.browser: Optional[Browser] = None
-        self.context: Optional[BrowserContext] = None
+        self.context: BrowserContext
 
     def __enter__(self) -> "BrowserManager":
         self.playwright = sync_playwright().start()

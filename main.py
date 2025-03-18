@@ -66,7 +66,7 @@ def main() -> None:
         city_id="0c5b2444-70a0-4932-980c-b4dc0d3f02b5",
         max_pages=args.pages,
     )
-    parser = GoldParser()
+    gold_parser = GoldParser()
     writer = CSVWriter()
 
     with BrowserManager() as browser:
@@ -78,7 +78,7 @@ def main() -> None:
         logging.info(f"Парсинг {len(products_to_parse)} товаров")
 
         parsed_products: list[dict] = [
-            parser.parse_product(p) for p in products_to_parse
+            gold_parser.parse_product(p) for p in products_to_parse
         ]
         page: Page = browser.new_page()
         for product in tqdm(parsed_products, desc="Парсинг деталей товаров"):

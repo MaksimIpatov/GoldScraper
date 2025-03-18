@@ -1,5 +1,6 @@
 import logging
 import re
+from typing import Any
 
 from playwright.sync_api import Page
 
@@ -10,7 +11,7 @@ class GoldParser:
     """Парсер данных из JSON-ответов API и HTML-страниц товара."""
 
     @staticmethod
-    def parse_product(product: dict[str, any]) -> dict[str, str]:
+    def parse_product(product: dict[str, Any]) -> dict[str, str]:
         """Извлекает основные данные из списка товаров."""
         return {
             "link": f"https://goldapple.ru{product.get('url', '')}",

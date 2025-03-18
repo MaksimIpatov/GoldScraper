@@ -18,6 +18,7 @@ dependencies = [
     "pytest (>=8.3.5,<9.0.0)",
     "pytest-mock (>=3.14.0,<4.0.0)",
     "pytest-cov (>=6.0.0,<7.0.0)",
+    "mypy (>=1.15.0,<2.0.0)",
 ]
 
 [tool.poetry.group.dev.dependencies]
@@ -86,3 +87,10 @@ use_parentheses = true
 known_local_folder = [
     "scraper",
 ]
+
+[tool.mypy]
+disable_error_code = ["import-untyped"]
+
+[[tool.mypy.overrides]]
+module = ["untyped_package.*"]
+follow_untyped_imports = true
